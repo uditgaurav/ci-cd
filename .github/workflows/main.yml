@@ -1,0 +1,22 @@
+---
+name: Test Release Images
+on:
+  workflow_dispatch:
+    inputs:
+      ImageTag:
+        default: ""
+        
+jobs:
+
+  CheckImageAvailability:
+    if: always()
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_TAG: "${{ github.event.inputs.ImageTag }}"
+    
+    steps:
+
+      - name: Check Chaos Exporter Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/chaos-exporter:${IMAGE_TAG}
+
