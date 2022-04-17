@@ -34,10 +34,6 @@ jobs:
         if: ${{ always() }}     
         run: docker pull litmuschaos/ansible-runner:${{ github.event.inputs.ImageTag }}
 
-      - name: Check Chaos Exporter Image
-        if: ${{ always() }}     
-        run: docker pull litmuschaos/chaos-exporter:${{ github.event.inputs.ImageTag }}
-
       - name: Check Chaos Scheduler Image
         if: ${{ always() }}     
         run: docker pull litmuschaos/chaos-scheduler:${{ github.event.inputs.ImageTag }}
