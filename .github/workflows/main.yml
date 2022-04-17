@@ -26,7 +26,6 @@ jobs:
         if: ${{ always() }}     
         run: docker pull litmuschaos/infra-alpine:${{ github.event.inputs.ImageTag }}
 
-
       - name: Check Python Runner Image
         if: ${{ always() }}     
         run: docker pull litmuschaos/py-runner:${{ github.event.inputs.ImageTag }}
