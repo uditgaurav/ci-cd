@@ -11,8 +11,6 @@ jobs:
   CheckImageAvailability:
     if: always()
     runs-on: ubuntu-latest
-    env:
-      IMAGE_TAG: "${{ github.event.inputs.ImageTag }}"
     
     steps:
 
@@ -20,3 +18,40 @@ jobs:
         if: ${{ always() }}     
         run: docker pull litmuschaos/chaos-exporter:${{ github.event.inputs.ImageTag }}
 
+      - name: Check Experiment Alpine Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/experiment-alpine:${{ github.event.inputs.ImageTag }}
+
+      - name: Check Infra Alpine Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/infra-alpine:${{ github.event.inputs.ImageTag }}
+
+
+      - name: Check Python Runner Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/py-runner:${{ github.event.inputs.ImageTag }}
+
+      - name: Check Ansible Runner Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/ansible-runner:${{ github.event.inputs.ImageTag }}
+
+      - name: Check Chaos Exporter Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/chaos-exporter:${{ github.event.inputs.ImageTag }}
+
+      - name: Check Chaos Scheduler Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/chaos-scheduler:${{ github.event.inputs.ImageTag }}
+
+      - name: Check Chaos Runner Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/chaos-runner:${{ github.event.inputs.ImageTag }}
+
+      - name: Check Chaos Operator Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/chaos-operator:${{ github.event.inputs.ImageTag }}
+
+      - name: Check Litmus Go Image
+        if: ${{ always() }}     
+        run: docker pull litmuschaos/go-runner:${{ github.event.inputs.ImageTag }}
+        
