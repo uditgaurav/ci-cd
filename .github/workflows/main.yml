@@ -18,5 +18,5 @@ jobs:
 
       - name: Check Chaos Exporter Image
         if: ${{ always() }}     
-        run: docker pull litmuschaos/chaos-exporter:${IMAGE_TAG}
+        run: docker pull litmuschaos/chaos-exporter:${{ github.event.inputs.ImageTag }}
 
